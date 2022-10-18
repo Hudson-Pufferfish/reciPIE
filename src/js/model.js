@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749
 import { async } from 'regenerator-runtime';
 import { API_URL, RES_PER_PAGE, KEY } from './config.js';
 // import { getJSON, sendJSON } from './helpers.js';
@@ -40,7 +43,10 @@ export const loadRecipe = async function (id) {
       state.recipe.bookmarked = true;
     else state.recipe.bookmarked = false;
 
+<<<<<<< HEAD
     console.log(state.recipe);
+=======
+>>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749
   } catch (err) {
     // Temp error handling
     console.error(`${err} 💥💥💥💥`);
@@ -87,6 +93,7 @@ export const updateServings = function (newServings) {
   });
 
   state.recipe.servings = newServings;
+<<<<<<< HEAD
 };
 
 const persistBookmarks = function () {
@@ -159,3 +166,6 @@ export const uploadRecipe = async function (newRecipe) {
     throw err;
   }
 };
+=======
+};
+>>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749
