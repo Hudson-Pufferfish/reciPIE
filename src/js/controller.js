@@ -10,8 +10,6 @@ import getDefi from "./defineWord"
 
 import { async } from 'regenerator-runtime';
 
-
-
 const controlRecipes = async function(){
   try{
     const id = window.location.hash.slice(1);
@@ -90,15 +88,12 @@ const controlBookmarks = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
-
-
 function controlGetDefine(){
   const title = model.state.recipe.title;
   if (!title) return;
   const word = title.split(' ')[0];
   getDefi(word);
 }
-
 
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
