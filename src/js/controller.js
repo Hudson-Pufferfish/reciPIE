@@ -5,8 +5,8 @@ import searchView from "./views/searchView";
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import resultsView from "./views/resultsView.js";
-import moreView from "./views/moreView";
-import getDefi from "./defi"
+import moreFactsView from "./views/moreFactsView";
+import getDefi from "./defineWord"
 
 import { async } from 'regenerator-runtime';
 
@@ -91,22 +91,8 @@ const controlBookmarks = function () {
 };
 
 
-//////////////////share//////////////
-let curUrl;
-let titleOfUrl;
-let emailAddrs;
 
-const controlGetEmail = function (emailAddr) {
-  curUrl = window.location.href;
-  titleOfUrl = model.state.recipe.title;
-  emailAddrs = emailAddr;
-
-  // Share recipe to user email
-  // shareRecipeView.shareCurPage(url, model.state.recipe.title, emailAddrs);
-  
-}
-
-function controlGetDefi(){
+function controlGetDefine(){
   const title = model.state.recipe.title;
   if (!title) return;
   const word = title.split(' ')[0];
@@ -121,7 +107,7 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
-  moreView.addHandlerMoreAPI(controlGetDefi);
+  moreFactsView.addHandlerMoreAPI(controlGetDefine);
 };
 init();
 

@@ -1,8 +1,8 @@
 import View from "./View";
 
-class moreView extends View{
+class moreFactsView extends View{
   _parentEl = document.querySelector('.nav_btn--share');
-  _uploadParentEl = document.querySelector('.upload');
+  _moreInfoParentEl = document.querySelector('.more-info');
 
   addHandlerMoreAPI(handler){
     this._parentEl.addEventListener("click", function(e){
@@ -11,8 +11,7 @@ class moreView extends View{
     })
   }
 
-  _parentElement = document.querySelector('.upload');
-  _message = 'Recipe was successfully uploaded :)';
+  _parentElement = document.querySelector('.more-info');
 
   _window = document.querySelector('.add-recipe-window');
   _overlay = document.querySelector('.overlay');
@@ -40,4 +39,4 @@ class moreView extends View{
   }
 }
 
-export default new moreView();
+export default new moreFactsView();
