@@ -1,21 +1,19 @@
-# reciPie Search
+# CS 330 Midterm Project -ReciPIE
 
 ## Overview
 
 This is a recipe search webpage that takes user input and display corresponding related recipes.
+This project was bootstrapped with [Parcel Bundler](https://github.com/parcel-bundler/parcel).
 
-## API Used
+## Available Scripts to run the project
 
-1. [Forkify API](https://forkify-api.herokuapp.com/)
-2. [Free Dictionary API](https://github.com/meetDeveloper/freeDictionaryAPI)
-3. []()
+In the project directory, to install required packages, you can run:
 
-## Getting Started
+#### `npm install`
 
-```bash
-npm install
-npm start
-```
+Then, to start the application, you can run:
+
+#### `npm start`
 
 ## Features
 
@@ -25,13 +23,26 @@ npm start
 3. User could bookmark and unbookmark recipe.
 4. Clicking + or - button, the recipe ingredients would be updated with the change in the number of servings.
 
-## Demo
+## Technologies and Tools
 
-## Further Develop Idea
+- ParcelJS
+- HTML, SCSS/SASS
+- Bootstrap
+- VanillaJS
 
-1. Share option: where user could share recipes to gmail, instagram and do on.
-2. User to add and upload their own recipes.
+## API Used
+
+1. [Forkify API](https://forkify-api.herokuapp.com/)
+2. [Free Dictionary API](https://github.com/meetDeveloper/freeDictionaryAPI)
+3. []()
+
+## Contributors
+
+- Hudson Nguyen - A CS Sophomore @Luther College
+- Millie Wang - A CS Sophomore @Luther College
 
 ## Acknowledgements
 
 The basic design of this webpage was based on [Jonas Schmedtmann](https://twitter.com/jonasschmedtman).
+
+## Demo

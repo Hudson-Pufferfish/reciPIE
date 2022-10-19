@@ -91,20 +91,6 @@ const controlBookmarks = function () {
 };
 
 
-//////////////////share//////////////
-let curUrl;
-let titleOfUrl;
-let emailAddrs;
-
-function controlGetEmail(emailAddr){
-  curUrl = window.location.href;
-  titleOfUrl = model.state.recipe.title;
-  emailAddrs = emailAddr;
-
-  // Share recipe to user email
-  // shareRecipeView.shareCurPage(url, model.state.recipe.title, emailAddrs);
-  
-}
 
 function controlGetDefine(){
   const title = model.state.recipe.title;

@@ -13,10 +13,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     />
+
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" href="src/sass/main.scss" />
     <script type="module" defer src="src/js/controller.js"></script>
 
-    <title>forkify // Search over 1,000,000 recipes</title>
+    <title>reciPie // Search over 1,000,000 recipes</title>
   </head>
 
   <body>
@@ -41,17 +50,17 @@
           <ul class="nav__list">
             <li class="nav__item">
               <button class="nav__btn nav__btn--add-recipe nav_btn--share">
-                <svg class="nav__icon">
+                <span class="nav__icon">
                   <i class="fa-solid fa-share"></i>
-                </svg>
+                </span>
                 <span>More facts</span>
               </button>
             </li>
             <li class="nav__item">
               <button class="nav__btn nav__btn--bookmarks">
-                <svg class="nav__icon">
+                <span class="nav__icon">
                   <i class="fa-solid fa-bookmark"></i>
-                </svg>
+                </span>
                 <span>Bookmarks</span>
               </button>
               <div class="bookmarks">
@@ -131,17 +140,16 @@
             target="_blank"
             href="https://twitter.com/jonasschmedtman"
             >Jonas Schmedtmann</a
-          >. Use for learning or your portfolio. Don't use to teach. Don't claim
-          as your own.
+          >. Use for learning or your portfolio. Don't use to teach.
         </p>
       </div>
 
       <div class="recipe">
         <div class="message">
           <div>
-            <svg>
+            <span class="display-4">
               <i class="fa-solid fa-face-smile"></i>
-            </svg>
+            </span>
           </div>
           <p>Start by searching for a recipe or an ingredient. Have fun!</p>
         </div>
@@ -261,11 +269,11 @@
 
     <div class="overlay hidden"></div>
     <div class="add-recipe-window hidden">
-      <button class="btn--close-modal">&times;</button>
-      <form class="upload">
-        <div class="upload__column">
-          <h1 class="upload__heading">Definition:</h1>
-          <h2 class="definition"></h2>
+      <button class="btn--close-modal btn btn-danger">&times;</button>
+      <form class="more-info">
+        <div class="more-info__column">
+          <h3 class="more-info__heading">More Facts</h3>
+          <p class="definition display-6"></p>
         </div>
       </form>
     </div>
