@@ -1,79 +1,13 @@
-<<<<<<< HEAD
-import * as model from './model.js';
-import resultsView from './views/resultsView.js';
-import paginationView from './views/paginationView.js';
-import bookmarksView from './views/bookmarksView.js';
-
-
-const controlRecipes = async function () {
-  try {
-    const id = window.location.hash.slice(1);
-
-    if (!id) return;
-
-    // 0) Update results view to mark selected search result
-    resultsView.update(model.getSearchResultsPage());
-
-    // 1) Updating bookmarks view
-    bookmarksView.update(model.state.bookmarks);
-
-    // 2) Loading recipe
-
-    // 3) Rendering recipe
-    recipeView.render(model.state.recipe);
-  } catch (err) {
-    recipeView.renderError();
-    console.error(err);
-  }
-};
-
-
-const controlPagination = function (goToPage) {
-  // 1) Render NEW results
-  resultsView.render(model.getSearchResultsPage(goToPage));
-
-  // 2) Render NEW pagination buttons
-  paginationView.render(model.state.search);
-};
-
-
-
-const controlAddBookmark = function () {
-  // 1) Add/remove bookmark
-  if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
-  else model.deleteBookmark(model.state.recipe.id);
-
-  // 2) Update recipe view
-  recipeView.update(model.state.recipe);
-
-  // 3) Render bookmarks
-  bookmarksView.render(model.state.bookmarks);
-};
-
-
-const init = function () {
-  bookmarksView.addHandlerRender(controlBookmarks);
-  recipeView.addHandlerAddBookmark(controlAddBookmark);
-  paginationView.addHandlerClick(controlPagination);
-
-=======
-import * as model from "./model.js"
+import * as model from "./model.js";
+import { MODAL_CLOSE_SEC } from './config.js';
 import recipeView from "./views/recipeView";
 import searchView from "./views/searchView";
+import paginationView from './views/paginationView.js';
+import bookmarksView from './views/bookmarksView.js';
 import resultsView from "./views/resultsView.js";
 import shareRecipeView from "./views/shareRecipeView";
 
-
-const recipeContainer = document.querySelector('.recipe');
-
-
-const timeout = function (s) {
-  return new Promise(function (_, reject) {
-    setTimeout(function () {
-      reject(new Error(`Request took too long! Timeout after ${s} second`));
-    }, s * 1000);
-  });
-};
+import { async } from 'regenerator-runtime';
 
 const controlRecipes = async function(){
   try{
@@ -82,17 +16,20 @@ const controlRecipes = async function(){
     if(!id) return;
     recipeView.renderSpinner(); //from View.js main class
 
+    // 0) Update results view to mark selected search result
     resultsView.update(model.getSearchResultsPage())
 
     // bookmark
+    bookmarksView.update(model.state.bookmarks);
 
     // load recipe
     await model.loadRecipe(id)
 
     // rendering recipe
     recipeView.render(model.state.recipe)
-  }catch(err){
-
+  } catch(err){
+    recipeView.renderError();
+    console.error(err);
   }
 }
 
@@ -118,6 +55,14 @@ const controlSearchResults = async function () {
   }
 };
 
+const controlPagination = function (goToPage) {
+  // 1) Render NEW results
+  resultsView.render(model.getSearchResultsPage(goToPage));
+
+  // 2) Render NEW pagination buttons
+  paginationView.render(model.state.search);
+};
+
 const controlServings = function (newServings) {
   // Update the recipe servings (in state)
   model.updateServings(newServings);
@@ -125,6 +70,23 @@ const controlServings = function (newServings) {
   // Update the recipe view
   recipeView.update(model.state.recipe);
 };
+
+const controlAddBookmark = function () {
+  // 1) Add/remove bookmark
+  if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
+  else model.deleteBookmark(model.state.recipe.id);
+
+  // 2) Update recipe view
+  recipeView.update(model.state.recipe);
+
+  // 3) Render bookmarks
+  bookmarksView.render(model.state.bookmarks);
+};
+
+const controlBookmarks = function () {
+  bookmarksView.render(model.state.bookmarks);
+};
+
 
 //////////////////share//////////////
 let curUrl;
@@ -142,13 +104,14 @@ function controlGetEmail(emailAddr){
 }
 
 
-const init = function(){
+const init = function () {
+  bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
-  searchView.addHandlerSearch(controlSearchResults)
-  // shareRecipeView.addHandlerShare(controlShare)
+  recipeView.addHandlerAddBookmark(controlAddBookmark);
+  searchView.addHandlerSearch(controlSearchResults);
+  paginationView.addHandlerClick(controlPagination);
   shareRecipeView.addHandlerUploadUserEmail(controlGetEmail)
->>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749
 };
 init();
 

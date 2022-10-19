@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749
 import { async } from 'regenerator-runtime';
 import { API_URL, RES_PER_PAGE, KEY } from './config.js';
 // import { getJSON, sendJSON } from './helpers.js';
@@ -43,10 +38,6 @@ export const loadRecipe = async function (id) {
       state.recipe.bookmarked = true;
     else state.recipe.bookmarked = false;
 
-<<<<<<< HEAD
-    console.log(state.recipe);
-=======
->>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749
   } catch (err) {
     // Temp error handling
     console.error(`${err} 💥💥💥💥`);
@@ -93,7 +84,6 @@ export const updateServings = function (newServings) {
   });
 
   state.recipe.servings = newServings;
-<<<<<<< HEAD
 };
 
 const persistBookmarks = function () {
@@ -130,42 +120,3 @@ init();
 const clearBookmarks = function () {
   localStorage.clear('bookmarks');
 };
-// clearBookmarks();
-
-export const uploadRecipe = async function (newRecipe) {
-  try {
-    const ingredients = Object.entries(newRecipe)
-      .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
-      .map(ing => {
-        const ingArr = ing[1].split(',').map(el => el.trim());
-        // const ingArr = ing[1].replaceAll(' ', '').split(',');
-        if (ingArr.length !== 3)
-          throw new Error(
-            'Wrong ingredient fromat! Please use the correct format :)'
-          );
-
-        const [quantity, unit, description] = ingArr;
-
-        return { quantity: quantity ? +quantity : null, unit, description };
-      });
-
-    const recipe = {
-      title: newRecipe.title,
-      source_url: newRecipe.sourceUrl,
-      image_url: newRecipe.image,
-      publisher: newRecipe.publisher,
-      cooking_time: +newRecipe.cookingTime,
-      servings: +newRecipe.servings,
-      ingredients,
-    };
-
-    const data = await AJAX(`${API_URL}?key=${KEY}`, recipe);
-    state.recipe = createRecipeObject(data);
-    addBookmark(state.recipe);
-  } catch (err) {
-    throw err;
-  }
-};
-=======
-};
->>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749

@@ -1,8 +1,4 @@
 import View from './View.js';
-<<<<<<< HEAD
-import icons from 'url:../../img/icons.svg'; // Parcel 2
-=======
->>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749
 
 class PreviewView extends View {
   _parentElement = '';
@@ -25,11 +21,7 @@ class PreviewView extends View {
               this._data.key ? '' : 'hidden'
             }">
               <svg>
-<<<<<<< HEAD
-              <use href="${icons}#icon-user"></use>
-=======
                 <i class="fa-solid fa-user-group"></i>
->>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749
               </svg>
             </div>
           </div>
@@ -39,8 +31,4 @@ class PreviewView extends View {
   }
 }
 
-<<<<<<< HEAD
 export default new PreviewView();
-=======
-export default new PreviewView();
->>>>>>> 9b376441b03ca578429bbe72b32a7d189bad0749
