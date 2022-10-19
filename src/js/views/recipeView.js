@@ -1,5 +1,6 @@
 import View from './View';
 import fracty from "fracty";
+import icons from 'url:../../img/icons.svg'; // Parcel 2
 
 class RecipeView extends View{
   _parentElement = document.querySelector('.recipe');
@@ -82,9 +83,9 @@ class RecipeView extends View{
           </div>
           <button class="btn--round btn--bookmark">
             <svg class="">
-              <i class="fa-solid fa-bookmark" ${
-        this._data.bookmarked ? '-fill' : ''
-      }"></i>
+            <use href="${icons}#icon-bookmark${
+              this._data.bookmarked ? '-fill' : ''
+            }"></use>
             </svg>
           </button>
         </div>
