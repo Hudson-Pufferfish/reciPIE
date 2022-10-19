@@ -1,16 +1,16 @@
 import View from './View';
-import fracty from "fracty";
+import fracty from 'fracty';
 import icons from 'url:../../img/icons.svg'; // Parcel 2
 
-class RecipeView extends View{
+class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
   _errorMessage = 'We could not find that recipe. Please try another one!';
   _message = '';
 
-  addHandlerRender(handler){
-    ['hashchange', 'load'].forEach(ev=>window.addEventListener(ev, handler))
+  addHandlerRender(handler) {
+    ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
   }
-  
+
   addHandlerUpdateServings(handler) {
     this._parentElement.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn--update-servings');
@@ -29,11 +29,11 @@ class RecipeView extends View{
   }
 
   _generateMarkup() {
-      return `
+    return `
         <figure class="recipe__fig">
           <img src="${this._data.image}" alt="${
-        this._data.title
-      }" class="recipe__img" />
+      this._data.title
+    }" class="recipe__img" />
           <h1 class="recipe__title">
             <span>${this._data.title}</span>
           </h1>
@@ -41,18 +41,18 @@ class RecipeView extends View{
   
         <div class="recipe__details">
           <div class="recipe__info">
-            <svg class="recipe__info-icon">
+            <span class="recipe__info-icon">
               <i class="fa-solid fa-clock"></i>
-            </svg>
+            </span>
             <span class="recipe__info-data recipe__info-data--minutes">${
               this._data.cookingTime
             }</span>
             <span class="recipe__info-text">minutes</span>
           </div>
           <div class="recipe__info">
-            <svg class="recipe__info-icon">
+            <span class="recipe__info-icon">
               <i class="fa-solid fa-user-group"></i>
-            </svg>
+            </span>
             <span class="recipe__info-data recipe__info-data--people">${
               this._data.servings
             }</span>
@@ -62,16 +62,16 @@ class RecipeView extends View{
               <button class="btn--tiny btn--update-servings" data-update-to="${
                 this._data.servings - 1
               }">
-                <svg>
+                <span>
                   <i class="fa-solid fa-circle-minus"></i>
-                </svg>
+                </span>
               </button>
               <button class="btn--tiny btn--update-servings" data-update-to="${
                 this._data.servings + 1
               }">
-                <svg>
+                <span>
                   <i class="fa-solid fa-circle-plus"></i>
-                </svg>
+                </span>
               </button>
             </div>
           </div>
@@ -84,8 +84,8 @@ class RecipeView extends View{
           <button class="btn--round btn--bookmark">
             <svg class="">
             <use href="${icons}#icon-bookmark${
-              this._data.bookmarked ? '-fill' : ''
-            }"></use>
+      this._data.bookmarked ? '-fill' : ''
+    }"></use>
             </svg>
           </button>
         </div>
@@ -93,7 +93,9 @@ class RecipeView extends View{
         <div class="recipe__ingredients">
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredient-list">
-            ${this._data.ingredients.map(this._generateMarkupIngredient).join('')}
+            ${this._data.ingredients
+              .map(this._generateMarkupIngredient)
+              .join('')}
         </div>
   
         <div class="recipe__directions">
@@ -117,16 +119,16 @@ class RecipeView extends View{
           </a>
         </div>
       `;
-    }
+  }
 
-    _generateMarkupIngredient(ing) {
-      return `
+  _generateMarkupIngredient(ing) {
+    return `
       <li class="recipe__ingredient">
-        <svg class="recipe__icon">
+        <span class="recipe__icon">
           <i class="fa-solid fa-circle-check"></i>
-        </svg>
+        </span>
         <div class="recipe__quantity">${
-        ing.quantity ? fracty(ing.quantity).toString() : ''
+          ing.quantity ? fracty(ing.quantity).toString() : ''
         }</div>
         <div class="recipe__description">
           <span class="recipe__unit">${ing.unit}</span>
@@ -134,7 +136,7 @@ class RecipeView extends View{
         </div>
       </li>
     `;
-    }
+  }
 }
 
-export default new RecipeView()
+export default new RecipeView();

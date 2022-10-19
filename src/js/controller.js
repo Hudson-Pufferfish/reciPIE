@@ -93,7 +93,7 @@ let curUrl;
 let titleOfUrl;
 let emailAddrs;
 
-function controlGetEmail(emailAddr){
+const controlGetEmail = function (emailAddr) {
   curUrl = window.location.href;
   titleOfUrl = model.state.recipe.title;
   emailAddrs = emailAddr;
