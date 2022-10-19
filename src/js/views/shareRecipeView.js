@@ -44,5 +44,9 @@ class shareRecipeView extends View{
 
 export default new shareRecipeView();
 
+const emailAddr = "slwangpwa@gmail.com";
+const title = 'an title'
+
+module.exports = {emailAddr, title}
 // how to send email:
 // https://www.youtube.com/watch?v=-rcRf7yswfM&t=48s
