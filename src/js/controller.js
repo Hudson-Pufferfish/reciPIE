@@ -1,41 +1,38 @@
-import * as model from "./model.js";
+import * as model from './model.js';
 import { MODAL_CLOSE_SEC } from './config.js';
-import recipeView from "./views/recipeView";
-import searchView from "./views/searchView";
+import recipeView from './views/recipeView';
+import searchView from './views/searchView';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
-import resultsView from "./views/resultsView.js";
-import moreFactsView from "./views/moreFactsView";
-import getDefi from "./defineWord"
+import resultsView from './views/resultsView.js';
+import moreFactsView from './views/moreFactsView';
+import getWordDef from './defineWord';
 
 import { async } from 'regenerator-runtime';
 
-
-
-const controlRecipes = async function(){
-  try{
+const controlRecipes = async function () {
+  try {
     const id = window.location.hash.slice(1);
 
-    if(!id) return;
+    if (!id) return;
     recipeView.renderSpinner(); //from View.js main class
 
     // 0) Update results view to mark selected search result
-    resultsView.update(model.getSearchResultsPage())
+    resultsView.update(model.getSearchResultsPage());
 
     // bookmark
     bookmarksView.update(model.state.bookmarks);
 
     // load recipe
-    await model.loadRecipe(id)
+    await model.loadRecipe(id);
 
     // rendering recipe
-    recipeView.render(model.state.recipe)
-  } catch(err){
+    recipeView.render(model.state.recipe);
+  } catch (err) {
     recipeView.renderError();
     console.error(err);
   }
-}
-
+};
 
 const controlSearchResults = async function () {
   try {
@@ -90,15 +87,12 @@ const controlBookmarks = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
-
-
-function controlGetDefine(){
+function controlGetWordDef() {
   const title = model.state.recipe.title;
   if (!title) return;
   const word = title.split(' ')[0];
-  getDefi(word);
+  getWordDef(word);
 }
-
 
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
@@ -107,7 +101,6 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
-  moreFactsView.addHandlerMoreAPI(controlGetDefine);
+  moreFactsView.addHandlerMoreAPI(controlGetWordDef);
 };
 init();
-
