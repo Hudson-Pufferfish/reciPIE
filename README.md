@@ -20,6 +20,7 @@ Then, to start the application, you can run:
 
 - ParcelJS
 - HTML, SCSS/SASS
+- Bootstrap
 - VanillaJS
 
 ## Demo
