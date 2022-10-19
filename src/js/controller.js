@@ -5,9 +5,12 @@ import searchView from "./views/searchView";
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import resultsView from "./views/resultsView.js";
-import shareRecipeView from "./views/shareRecipeView";
+import moreView from "./views/moreView";
+import getDefi from "./defi"
 
 import { async } from 'regenerator-runtime';
+
+
 
 const controlRecipes = async function(){
   try{
@@ -103,6 +106,13 @@ function controlGetEmail(emailAddr){
   
 }
 
+function controlGetDefi(){
+  const title = model.state.recipe.title;
+  if (!title) return;
+  const word = title.split(' ')[0];
+  getDefi(word);
+}
+
 
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
@@ -111,67 +121,7 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
-  shareRecipeView.addHandlerUploadUserEmail(controlGetEmail)
+  moreView.addHandlerMoreAPI(controlGetDefi);
 };
 init();
 
-
-
-
-/*
-////////////发送邮件/////////////////
-
-// const nodemailer = require('nodemailer');
-// const { google } = require('googleapis');
-import nodemailer from 'nodemailer';
-import {google} from 'googleapis';
-
-// These id's and secrets should come from .env file.
-const CLIENT_ID = '347847861216-3se11mbfeteegu3i9mrlbhfnqokhveng.apps.googleusercontent.com';
-const CLIENT_SECRET = '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';
-const REDIRECT_URL = 'https://developers.google.com/oauthplayground';
-const REFRESH_TOKEN = 'ya29.a0Aa4xrXMUoLsL0N-lztvsUWTVPNfbhJfA_WuCZ1Vr6Xq6AEBlpiDITnUUOrVgzHY5NTIU1tQ7xTWtwrU8tKddduyu0tzIeUKSKDHyWQLxWxjOPNGD4UxTHUYUyKvl01n9lb6UtQucerxfT9IAsyeuFTl_D0PDaCgYKATASARASFQEjDvL9NkgRpvMSNvl17z_PMdGAiA0163';
-
-const oAuth2Client = new google.auth.OAuth2(
-  CLIENT_ID,
-  CLIENT_SECRET,
-  REDIRECT_URL
-);
-oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-
-async function sendMail() {
-  try {
-    const accessToken = await oAuth2Client.getAccessToken();
-
-    const transport = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        type: 'OAuth2',
-        user: 'wangsh01@luther.edu',
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
-        refreshToken: REFRESH_TOKEN,
-        accessToken: accessToken,
-      },
-    });
-
-    const mailOptions = {
-      from: 'wangsh01@luther.edu',
-      to: 'slwangpwa@gmail.com',
-      subject: 'Hello from gmail using API',
-      text: 'Hello from gmail email using API',
-      html: '<h1>Hello from gmail email using API</h1>',
-    };
-
-    const result = await transport.sendMail(mailOptions);
-    return result;
-    
-  } catch (error) {
-    return error;
-  }
-}
-
-sendMail()
-  .then((result) => console.log('Email sent...', result))
-  .catch((error) => console.log(error.message));
-*/

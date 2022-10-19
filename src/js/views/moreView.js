@@ -1,15 +1,13 @@
 import View from "./View";
 
-class shareRecipeView extends View{
+class moreView extends View{
   _parentEl = document.querySelector('.nav_btn--share');
   _uploadParentEl = document.querySelector('.upload');
 
-
-  addHandlerUploadUserEmail(handler){
-    this._uploadParentEl.addEventListener('submit', function(e){
-      e.preventDefault()
-      const emailAddr = document.querySelector('.emailField').value;
-      handler(emailAddr)
+  addHandlerMoreAPI(handler){
+    this._parentEl.addEventListener("click", function(e){
+      e.preventDefault();
+      handler()
     })
   }
 
@@ -42,11 +40,4 @@ class shareRecipeView extends View{
   }
 }
 
-export default new shareRecipeView();
-
-const emailAddr = "slwangpwa@gmail.com";
-const title = 'an title'
-
-module.exports = {emailAddr, title}
-// how to send email:
-// https://www.youtube.com/watch?v=-rcRf7yswfM&t=48s
+export default new moreView();
