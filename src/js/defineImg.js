@@ -1,21 +1,16 @@
-// const defiEl = document.querySelector('.more-info__def');
+const imgDefEl = document.querySelector('.more-info__img');
 
-// export default getDefi = async function (word) {
-//   try {
-//     const res = await fetch(
-//       `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-//     );
-//     const data = await res.json().then(function (result) {
-//       const [obj0] = result;
-//       const meanings = obj0.meanings;
-//       const firstMeaning = meanings[0];
-//       const definitions = firstMeaning.definitions;
-//       const firstDefinition = definitions[0];
-//       const definiti = firstDefinition.definition;
-//       defiEl.innerText = `${word}: ${definiti}`;
-//       return definiti;
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+export default getImgDef = async function (word) {
+  try {
+    const res = await fetch(`https://imsea.herokuapp.com/api/1?q=${word}`);
+    const data = await res.json().then(function (result) {
+      console.log(result);
+      imgDefEl.alt = result.image_name ?? '';
+      const img = result.results;
+      imgDefEl.src = img[0];
+      return img;
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
