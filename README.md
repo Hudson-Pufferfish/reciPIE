@@ -25,6 +25,8 @@ npm start
 3. User could bookmark and unbookmark recipe.
 4. Clicking + or - button, the recipe ingredients would be updated with the change in the number of servings.
 
+## Demo
+
 ## Further Develop Idea
 
 1. Share option: where user could share recipes to gmail, instagram and do on.
