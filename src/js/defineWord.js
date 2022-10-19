@@ -1,5 +1,5 @@
 
-defiEl = document.querySelector('.defi')
+defiEl = document.querySelector('.definition')
 
 export default getDefi = async function (word){
   try{

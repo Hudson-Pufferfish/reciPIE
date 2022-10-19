@@ -1,6 +1,6 @@
 import View from "./View";
 
-class moreView extends View{
+class moreFactsView extends View{
   _parentEl = document.querySelector('.nav_btn--share');
   _uploadParentEl = document.querySelector('.upload');
 
@@ -40,4 +40,4 @@ class moreView extends View{
   }
 }
 
-export default new moreView();
+export default new moreFactsView();

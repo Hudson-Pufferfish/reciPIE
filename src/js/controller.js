@@ -5,8 +5,8 @@ import searchView from "./views/searchView";
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import resultsView from "./views/resultsView.js";
-import moreView from "./views/moreView";
-import getDefi from "./defi"
+import moreFactsView from "./views/moreFactsView";
+import getDefi from "./defineWord"
 
 import { async } from 'regenerator-runtime';
 
@@ -106,7 +106,7 @@ function controlGetEmail(emailAddr){
   
 }
 
-function controlGetDefi(){
+function controlGetDefine(){
   const title = model.state.recipe.title;
   if (!title) return;
   const word = title.split(' ')[0];
@@ -121,7 +121,7 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
-  moreView.addHandlerMoreAPI(controlGetDefi);
+  moreFactsView.addHandlerMoreAPI(controlGetDefine);
 };
 init();
 
