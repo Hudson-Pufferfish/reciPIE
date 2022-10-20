@@ -34,7 +34,7 @@ Then, to start the application, you can run:
 
 1. [Forkify API](https://forkify-api.herokuapp.com/)
 2. [Free Dictionary API](https://github.com/meetDeveloper/freeDictionaryAPI)
-3. []()
+3. [Numbers API](http://numbersapi.com/)
 
 ## Contributors
 
@@ -46,3 +46,5 @@ Then, to start the application, you can run:
 The basic design of this webpage was based on [Jonas Schmedtmann](https://twitter.com/jonasschmedtman).
 
 ## Demo
+
+![demo](https://user-images.githubusercontent.com/96578906/196848455-c83cee95-19df-4e3a-8114-62d53b5ebd86.png)

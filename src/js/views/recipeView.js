@@ -62,14 +62,14 @@ class RecipeView extends View {
               <button class="btn--tiny btn--update-servings" data-update-to="${
                 this._data.servings - 1
               }">
-                <span>
+                <span class="fs-2">
                   <i class="fa-solid fa-circle-minus"></i>
                 </span>
               </button>
               <button class="btn--tiny btn--update-servings" data-update-to="${
                 this._data.servings + 1
               }">
-                <span>
+                <span class="fs-2">
                   <i class="fa-solid fa-circle-plus"></i>
                 </span>
               </button>

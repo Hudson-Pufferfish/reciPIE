@@ -7,7 +7,7 @@ import bookmarksView from './views/bookmarksView.js';
 import resultsView from './views/resultsView.js';
 import moreFactsView from './views/moreFactsView';
 import getWordDef from './defineWord';
-import spanishWord from './defineImg.js';
+import getFactDef from './defineFact';
 
 import { async } from 'regenerator-runtime';
 
@@ -96,6 +96,12 @@ function controlGetWordDef() {
   spanishWord(word)
 }
 
+function controlGetFactDef() {
+  const cookingTime = model.state.recipe.cookingTime;
+  if (!cookingTime) return;
+  getFactDef(cookingTime);
+}
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -104,6 +110,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   moreFactsView.addHandlerMoreAPI(controlGetWordDef);
-
+  moreFactsView.addHandlerMoreAPI(controlGetFactDef);
 };
 init();
