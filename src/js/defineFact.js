@@ -1,6 +1,5 @@
-const factEl = document.querySelector('.more-info__fact');
-
 export default getFactDef = async function (numb) {
+  const factEl = document.querySelector('.more-info__fact');
   try {
     const res = await fetch(`http://numbersapi.com/${numb}/trivia`);
     let factText = await res.text();

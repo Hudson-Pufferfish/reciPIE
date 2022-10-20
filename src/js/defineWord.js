@@ -1,6 +1,5 @@
-const defiEl = document.querySelector('p.more-info__def');
-
 export default getWordDef = async function (word) {
+  const defiEl = document.querySelector('p.more-info__def');
   try {
     const res = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
