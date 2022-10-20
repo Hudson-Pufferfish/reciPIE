@@ -7,7 +7,7 @@ import bookmarksView from './views/bookmarksView.js';
 import resultsView from './views/resultsView.js';
 import moreFactsView from './views/moreFactsView';
 import getWordDef from './defineWord';
-import getImgDef from './defineImg';
+import getFactDef from './defineFact';
 
 import { async } from 'regenerator-runtime';
 
@@ -95,11 +95,10 @@ function controlGetWordDef() {
   getWordDef(word);
 }
 
-function controlGetImgDef() {
-  const title = model.state.recipe.title;
-  if (!title) return;
-  const word = title.split(' ')[0];
-  getImgDef(word);
+function controlGetFactDef() {
+  const cookingTime = model.state.recipe.cookingTime;
+  if (!cookingTime) return;
+  getFactDef(cookingTime);
 }
 
 const init = function () {
@@ -110,6 +109,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   moreFactsView.addHandlerMoreAPI(controlGetWordDef);
-  moreFactsView.addHandlerMoreAPI(controlGetImgDef);
+  moreFactsView.addHandlerMoreAPI(controlGetFactDef);
 };
 init();
