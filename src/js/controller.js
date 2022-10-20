@@ -7,6 +7,7 @@ import bookmarksView from './views/bookmarksView.js';
 import resultsView from './views/resultsView.js';
 import moreFactsView from './views/moreFactsView';
 import getWordDef from './defineWord';
+import spanishWord from './defineImg.js';
 
 import { async } from 'regenerator-runtime';
 
@@ -92,6 +93,7 @@ function controlGetWordDef() {
   if (!title) return;
   const word = title.split(' ')[0];
   getWordDef(word);
+  spanishWord(word)
 }
 
 const init = function () {
@@ -102,5 +104,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   moreFactsView.addHandlerMoreAPI(controlGetWordDef);
+
 };
 init();

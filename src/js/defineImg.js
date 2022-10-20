@@ -1,3 +1,6 @@
+
+
+
 // const defiEl = document.querySelector('.more-info__def');
 
 // export default getDefi = async function (word) {

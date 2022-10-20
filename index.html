@@ -22,6 +22,7 @@
       crossorigin="anonymous"
     />
 
+    <script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>
     <link rel="stylesheet" href="src/sass/main.scss" />
     <script type="module" defer src="src/js/controller.js"></script>
 
@@ -270,15 +271,21 @@
     <div class="overlay hidden"></div>
     <div class="add-recipe-window hidden">
       <button class="btn--close-modal btn btn-danger">&times;</button>
-      <form class="more-info">
+      <!-- <form class="more-info">
         <div class="more-info__column">
           <h3 class="more-info__heading">More Facts</h3>
           <p class="more-info__def display-6"></p>
         </div>
-        <div class="more-info__column">
-          <!-- <img src="" alt="" class="more-info__img" /> -->
+      </form> -->
+      <!-- <form> -->
+      <div class="row align-items-start">
+        <div class="col">
+          <p class="fs-1">Definition</p>
+          <p class="more-info__def display-6"></p>
         </div>
-      </form>
+        <div class="col fs-1">Image</div>
+      </div>
+      <!-- </form> -->
     </div>
   </body>
 </html>
