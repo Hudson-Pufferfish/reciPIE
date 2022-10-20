@@ -3,7 +3,6 @@
 ## Overview
 
 This is a recipe search webpage that takes user input and display corresponding related recipes.
-This project was bootstrapped with [Parcel Bundler](https://github.com/parcel-bundler/parcel).
 
 ## Available Scripts to run the project
 
@@ -15,6 +14,8 @@ Then, to start the application, you can run:
 
 #### `npm start`
 
+Open http://localhost:1234 to view it in the browser.
+
 ## Features
 
 1. Take user input, render list of recipes related to input keyword.
@@ -25,7 +26,7 @@ Then, to start the application, you can run:
 
 ## Technologies and Tools
 
-- ParcelJS
+- [Parcel.js](https://github.com/parcel-bundler/parcel)
 - HTML, SCSS/SASS
 - Bootstrap
 - VanillaJS
