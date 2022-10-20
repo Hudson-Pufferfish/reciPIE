@@ -1,4 +1,4 @@
-const defiEl = document.querySelector('.more-info__def');
+const defiEl = document.querySelector('p.more-info__def');
 
 export default getWordDef = async function (word) {
   try {
